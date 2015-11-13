@@ -1,4 +1,4 @@
-﻿namespace ApiHelper.Response
+﻿namespace Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.Response
 {
     using System.Net;
 

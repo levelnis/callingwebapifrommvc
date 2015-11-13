@@ -7,8 +7,8 @@
     <ProjectGuid>{1D4D93E1-3602-42E6-A7FA-33707D6106F5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ApiHelper</RootNamespace>
-    <AssemblyName>ApiHelper</AssemblyName>
+    <RootNamespace>Levelnis.Learning.CallingWebApiFromMvc.ApiHelper</RootNamespace>
+    <AssemblyName>Levelnis.Learning.CallingWebApiFromMvc.ApiHelper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

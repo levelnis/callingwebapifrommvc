@@ -1,4 +1,4 @@
-﻿namespace ApiHelper.Client
+﻿namespace Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.Client
 {
     using System.Collections.Generic;
     using System.Net.Http;
