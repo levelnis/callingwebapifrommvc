@@ -13,7 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7A3798
 	ProjectSection(SolutionItems) = preProject
 		.nuget\CreateNugetPackage.cmd = .nuget\CreateNugetPackage.cmd
 		.nuget\Levelnis.Learning.ApiHelper.nuspec = .nuget\Levelnis.Learning.ApiHelper.nuspec
-		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
