@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Levelnis.Learning.ApiHelper</id>
+    <version>1.0.0</version>
+    <authors>Simon Rigby</authors>
+    <owners>Levelnis Ltd</owners>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>https://github.com/levelnis/callingwebapifrommvc</projectUrl>
+    <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Learning resource to accompany blog article at levelnis.co.uk/blog/how-do-you-call-a-webapi-endpoint-without-using-javascript</description>
+    <copyright>Copyright Levelnis Ltd 2015</copyright>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
+    </dependencies>
+    <references>
+      <reference file="Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.dll" />
+    </references>
+  </metadata>
+  <files>
+    <file src="..\ApiHelper\bin\Debug\Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.dll" target="lib\net45" />
+    <file src="..\ApiHelper\bin\Debug\Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.pdb" target="lib\net45" />
+  </files>
+</package>

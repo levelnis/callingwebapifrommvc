@@ -1,7 +1,6 @@
 ﻿namespace Levelnis.Learning.CallingWebApiFromMvc.Web.ApiInfrastructure.ApiModels
 {
     using System;
-    using ApiHelper;
     using ApiHelper.Model;
 
     public class ProductApiModel : ApiModel
