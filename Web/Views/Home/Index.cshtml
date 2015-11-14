@@ -7,3 +7,14 @@
     <p class="lead">Enter an id below (numbers only):</p>
     <p><input type="text" id="ProductId"/> <input type="button" id="GetProductAction" class="btn btn-primary" value="Get Product"/></p>
 </div>
+
+@section scripts {
+    <script>
+        (function($) {
+            $('#GetProductAction').on('click', function() {
+                var productId = $('#ProductId').val();
+                document.location.href = '/product/getproduct/' + productId;
+            });
+        })(jQuery);
+    </script>
+}

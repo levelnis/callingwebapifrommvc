@@ -1,7 +1,6 @@
 ﻿namespace Levelnis.Learning.CallingWebApiFromMvc.Web.ApiInfrastructure.Client
 {
     using System.Threading.Tasks;
-    using ApiHelper;
     using ApiHelper.Client;
     using ApiModels;
     using Responses;
