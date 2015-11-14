@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/levelnis/callingwebapifrommvc</projectUrl>
     <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Learning resource to accompany blog article at levelnis.co.uk/blog</description>
+    <description>Learning resource to accompany blog article at levelnis.co.uk/blog/how-do-you-call-a-webapi-endpoint-without-using-javascript</description>
     <copyright>Copyright Levelnis Ltd 2015</copyright>
     <dependencies>
       <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
