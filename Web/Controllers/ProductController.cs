@@ -4,6 +4,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
 {
     using System.Threading.Tasks;
     using ApiHelper.Client;
+    using ApiInfrastructure;
     using ApiInfrastructure.Client;
     using Models;
 
@@ -13,7 +14,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
 
         public ProductController()
         {
-            var apiClient = new ApiClient();
+            var apiClient = new ApiClient(HttpClientInstance.Instance);
             productClient = new ProductClient(apiClient);
         }
 

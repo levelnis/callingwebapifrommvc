@@ -121,6 +121,8 @@
     <Compile Include="ApiInfrastructure\ApiModels\ProductApiModel.cs" />
     <Compile Include="ApiInfrastructure\Client\IProductClient.cs" />
     <Compile Include="ApiInfrastructure\Client\ProductClient.cs" />
+    <Compile Include="ApiInfrastructure\HttpClientInstance.cs" />
+    <Compile Include="ApiInfrastructure\Responses\CreateProductResponse.cs" />
     <Compile Include="ApiInfrastructure\Responses\ProductResponse.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />

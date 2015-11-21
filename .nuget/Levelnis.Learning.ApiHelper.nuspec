@@ -9,10 +9,11 @@
     <projectUrl>https://github.com/levelnis/callingwebapifrommvc</projectUrl>
     <iconUrl>https://nuget.org/Content/Images/packageDefaultIcon-50x50.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Learning resource to accompany blog article at levelnis.co.uk/blog/how-do-you-call-a-webapi-endpoint-without-using-javascript</description>
+    <description>Learning resource to accompany blog article at levelnis.co.uk/blog/how-do-you-post-to-a-webapi-controller-from-an-mvc-controller</description>
     <copyright>Copyright Levelnis Ltd 2015</copyright>
     <dependencies>
       <dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
+      <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
     </dependencies>
     <references>
       <reference file="Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.dll" />
