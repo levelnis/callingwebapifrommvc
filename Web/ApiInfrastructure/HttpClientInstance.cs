@@ -1,5 +1,6 @@
 ﻿namespace Levelnis.Learning.CallingWebApiFromMvc.Web.ApiInfrastructure
 {
+    using System;
     using System.Net.Http;
 
     /// <summary>
@@ -9,7 +10,8 @@
     /// </summary>
     public static class HttpClientInstance
     {
-        private static readonly HttpClient instance = new HttpClient();
+        private const string BaseUri = "Http://localhost:28601/";
+        private static readonly HttpClient instance = new HttpClient {BaseAddress = new Uri(BaseUri)};
 
         public static HttpClient Instance
         {

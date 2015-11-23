@@ -23,6 +23,20 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
             this.productClient = productClient;
         }
 
+        public ActionResult CreateProduct()
+        {
+            var model = new ProductViewModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateProduct(ProductViewModel model)
+        {
+            var response = await productClient.CreateProduct(model);
+            var productId = response.Data;
+            return RedirectToAction("GetProduct", new {id = productId});
+        }
+
         public async Task<ActionResult> GetProduct(int id)
         {
             var product = await productClient.GetProduct(id);
