@@ -21,9 +21,7 @@
         {
             using (var apiResponse = await apiClient.GetFormEncodedContent(uri, requestParameters))
             {
-                var response = await CreateJsonResponse<TResponse>(apiResponse);
-                response.Data = Json.Decode<TContentResponse>(response.ResponseResult);
-                return response;
+                return await DecodeJsonResponse<TResponse, TContentResponse>(apiResponse);
             }
         }
 
@@ -33,9 +31,7 @@
         {
             using (var apiResponse = await apiClient.PostJsonEncodedContent(url, model))
             {
-                var response = await CreateJsonResponse<TResponse>(apiResponse);
-                response.Data = Json.Decode<int>(response.ResponseResult);
-                return response;
+                return await DecodeJsonResponse<TResponse, int>(apiResponse);
             }
         }
 
@@ -44,6 +40,7 @@
             var clientResponse = new TResponse
             {
                 StatusIsSuccessful = response.IsSuccessStatusCode,
+                ErrorState = response.IsSuccessStatusCode ? null : await DecodeContent<ErrorStateResponse>(response),
                 ResponseCode = response.StatusCode
             };
             if (response.Content != null)
@@ -52,6 +49,19 @@
             }
 
             return clientResponse;
+        }
+
+        private static async Task<TResponse> DecodeJsonResponse<TResponse, TDecode>(HttpResponseMessage apiResponse) where TResponse : ApiResponse<TDecode>, new()
+        {
+            var response = await CreateJsonResponse<TResponse>(apiResponse);
+            response.Data = Json.Decode<TDecode>(response.ResponseResult);
+            return response;
+        }
+
+        private static async Task<TContentResponse> DecodeContent<TContentResponse>(HttpResponseMessage response)
+        {
+            var result = await response.Content.ReadAsStringAsync();
+            return Json.Decode<TContentResponse>(result);
         }
     }
 }
