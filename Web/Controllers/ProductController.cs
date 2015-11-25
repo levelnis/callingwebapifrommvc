@@ -8,7 +8,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
     using ApiInfrastructure.Client;
     using Models;
 
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         private readonly IProductClient productClient;
 
@@ -33,8 +33,14 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
         public async Task<ActionResult> CreateProduct(ProductViewModel model)
         {
             var response = await productClient.CreateProduct(model);
-            var productId = response.Data;
-            return RedirectToAction("GetProduct", new {id = productId});
+            if (response.StatusIsSuccessful)
+            {
+                var productId = response.Data;
+                return RedirectToAction("GetProduct", new { id = productId });
+            }
+
+            AddResponseErrorsToModelState(response);
+            return View(model);
         }
 
         public async Task<ActionResult> GetProduct(int id)

@@ -8,11 +8,13 @@
 
 @using (Html.BeginForm("CreateProduct", "Product", FormMethod.Post, new {@class = "form-horizontal"}))
 {
+    @Html.ValidationSummary(false, "Please review the issues below.")
     <div class="row">
         <div class="form-group">
             @Html.LabelFor(m => m.Name, "Product Name:", new { @class = "col-sm-3 control-label" })
             <div class="col-sm-3">
                 @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
             </div>
         </div>
     </div>
@@ -21,6 +23,7 @@
             @Html.LabelFor(m => m.Description, "Product Description:", new { @class = "col-sm-3 control-label" })
             <div class="col-sm-3">
                 @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Description)
             </div>
         </div>
     </div>
