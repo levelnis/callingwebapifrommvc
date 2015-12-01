@@ -1,5 +1,6 @@
 ﻿namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
     using ApiHelper.Response;
 
@@ -15,7 +16,14 @@
 
             foreach (var error in errors)
             {
-                ModelState.AddModelError(error.Key, error.Value[0]);
+                foreach (var entry in 
+                    from entry in ModelState
+                    let matchSuffix = string.Concat(".", entry.Key)
+                    where error.Key.EndsWith(matchSuffix)
+                    select entry)
+                {
+                    ModelState.AddModelError(entry.Key, error.Value[0]);
+                }
             }
         }
     }
