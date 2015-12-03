@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm("CreateProduct", "Product", FormMethod.Post, new {@class = "form-horizontal"}))
 {
+    @Html.AntiForgeryToken()
     @Html.ValidationSummary(true, "Please review the issues below.")
     <div class="row">
         <div class="form-group">
