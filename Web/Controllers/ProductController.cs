@@ -30,6 +30,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> CreateProduct(ProductViewModel model)
         {
             var response = await productClient.CreateProduct(model);
