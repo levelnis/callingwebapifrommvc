@@ -43,7 +43,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
             var response = await loginClient.Register(model);
             if (response.StatusIsSuccessful)
             {
-                
+                return RedirectToAction("Index", "Home");
             }
 
             AddResponseErrorsToModelState(response);
