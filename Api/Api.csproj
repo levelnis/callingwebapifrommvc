@@ -127,10 +127,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Models\LoginApiModel.cs" />
     <Compile Include="Models\ProductApiModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegisterApiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

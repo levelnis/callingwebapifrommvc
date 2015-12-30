@@ -118,22 +118,30 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiInfrastructure\ApiExtensions.cs" />
+    <Compile Include="ApiInfrastructure\ApiModels\LoginApiModel.cs" />
     <Compile Include="ApiInfrastructure\ApiModels\ProductApiModel.cs" />
+    <Compile Include="ApiInfrastructure\ApiModels\RegisterApiModel.cs" />
+    <Compile Include="ApiInfrastructure\Client\ILoginClient.cs" />
     <Compile Include="ApiInfrastructure\Client\IProductClient.cs" />
+    <Compile Include="ApiInfrastructure\Client\LoginClient.cs" />
     <Compile Include="ApiInfrastructure\Client\ProductClient.cs" />
     <Compile Include="ApiInfrastructure\HttpClientInstance.cs" />
     <Compile Include="ApiInfrastructure\Responses\CreateProductResponse.cs" />
     <Compile Include="ApiInfrastructure\Responses\ProductResponse.cs" />
+    <Compile Include="ApiInfrastructure\Responses\RegisterResponse.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ProductViewModel.cs" />
+    <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,6 +179,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Product\GetProduct.cshtml" />
     <Content Include="Views\Product\CreateProduct.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

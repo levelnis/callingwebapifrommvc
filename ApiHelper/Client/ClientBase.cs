@@ -9,17 +9,17 @@
 
     public abstract class ClientBase
     {
-        private readonly IApiClient apiClient;
+        protected readonly IApiClient ApiClient;
 
         protected ClientBase(IApiClient apiClient)
         {
-            this.apiClient = apiClient;
+            ApiClient = apiClient;
         }
 
         protected async Task<TResponse> GetJsonDecodedContent<TResponse, TContentResponse>(string uri, params KeyValuePair<string, string>[] requestParameters) 
             where TResponse : ApiResponse<TContentResponse>, new()
         {
-            using (var apiResponse = await apiClient.GetFormEncodedContent(uri, requestParameters))
+            using (var apiResponse = await ApiClient.GetFormEncodedContent(uri, requestParameters))
             {
                 return await DecodeJsonResponse<TResponse, TContentResponse>(apiResponse);
             }
@@ -29,13 +29,13 @@
             where TModel : ApiModel
             where TResponse : ApiResponse<int>, new()
         {
-            using (var apiResponse = await apiClient.PostJsonEncodedContent(url, model))
+            using (var apiResponse = await ApiClient.PostJsonEncodedContent(url, model))
             {
                 return await DecodeJsonResponse<TResponse, int>(apiResponse);
             }
         }
 
-        private static async Task<TResponse> CreateJsonResponse<TResponse>(HttpResponseMessage response) where TResponse : ApiResponse, new()
+        protected static async Task<TResponse> CreateJsonResponse<TResponse>(HttpResponseMessage response) where TResponse : ApiResponse, new()
         {
             var clientResponse = new TResponse
             {
