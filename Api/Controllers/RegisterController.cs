@@ -1,6 +1,7 @@
 ﻿namespace Levelnis.Learning.CallingWebApiFromMvc.Api.Controllers
 {
     using System.Net.Http;
+    using System.Web;
     using System.Web.Http;
     using Identity;
     using Microsoft.AspNet.Identity;
@@ -16,7 +17,7 @@
         {
             get
             {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
@@ -34,7 +35,8 @@
             var user = new ApplicationUser
             {
                 Email = model.Email,
-                UserName = model.Email
+                UserName = model.Email,
+                EmailConfirmed = true
             };
 
             var result = UserManager.Create(user, model.Password);
