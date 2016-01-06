@@ -5,6 +5,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Api.Controllers
     using System;
     using Models;
 
+    [Authorize]
     public class ProductController : ApiController
     {
         public IHttpActionResult Get(int id)

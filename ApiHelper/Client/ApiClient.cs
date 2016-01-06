@@ -9,14 +9,17 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.Client
     public class ApiClient : IApiClient
     {
         private readonly HttpClient httpClient;
+        private readonly IContextWrapper contextWrapper;
 
-        public ApiClient(HttpClient httpClient)
+        public ApiClient(HttpClient httpClient, IContextWrapper contextWrapper)
         {
             this.httpClient = httpClient;
+            this.contextWrapper = contextWrapper;
         }
 
         public async Task<HttpResponseMessage> GetFormEncodedContent(string requestUri, params KeyValuePair<string, string>[] values)
         {
+            AddToken();
             using (var content = new FormUrlEncodedContent(values))
             {
                 var query = await content.ReadAsStringAsync();
@@ -26,12 +29,30 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.Client
             }
         }
 
+        public async Task<HttpResponseMessage> PostFormEncodedContent(string requestUri, params KeyValuePair<string, string>[] values)
+        {
+            using (var content = new FormUrlEncodedContent(values))
+            {
+                var response = await httpClient.PostAsync(requestUri, content);
+                return response;
+            }
+        }
+
         public async Task<HttpResponseMessage> PostJsonEncodedContent<T>(string requestUri, T content) where T : ApiModel
         {
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            AddToken();
             var response = await httpClient.PostAsJsonAsync(requestUri, content);
             return response;
+        }
+
+        private void AddToken()
+        {
+            if (contextWrapper.ApiToken != null)
+            {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", contextWrapper.ApiToken.ToString());
+            }
         }
     }
 }

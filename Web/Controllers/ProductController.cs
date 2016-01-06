@@ -8,16 +8,26 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
     using ApiInfrastructure.Client;
     using Models;
 
+    [Authorize]
     public class ProductController : BaseController
     {
         private readonly IProductClient productClient;
 
+        /// <summary>
+        /// Default parameterless constructor. 
+        /// Delete this if you are using a DI container.
+        /// </summary>
         public ProductController()
         {
             var apiClient = new ApiClient(HttpClientInstance.Instance);
             productClient = new ProductClient(apiClient);
         }
 
+        /// <summary>
+        /// Default constructor with dependency.
+        /// Delete this if you aren't planning on using a DI container.
+        /// </summary>
+        /// <param name="productClient">The product client.</param>
         public ProductController(IProductClient productClient)
         {
             this.productClient = productClient;

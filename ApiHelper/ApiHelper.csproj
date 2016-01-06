@@ -75,6 +75,7 @@
     <Compile Include="Client\ApiClient.cs" />
     <Compile Include="Client\ClientBase.cs" />
     <Compile Include="Client\IApiClient.cs" />
+    <Compile Include="IContextWrapper.cs" />
     <Compile Include="Model\ApiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Response\ApiResponse.cs" />

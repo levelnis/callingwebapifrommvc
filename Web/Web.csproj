@@ -125,10 +125,12 @@
     <Compile Include="ApiInfrastructure\Client\IProductClient.cs" />
     <Compile Include="ApiInfrastructure\Client\LoginClient.cs" />
     <Compile Include="ApiInfrastructure\Client\ProductClient.cs" />
+    <Compile Include="ApiInfrastructure\ContextWrapper.cs" />
     <Compile Include="ApiInfrastructure\HttpClientInstance.cs" />
     <Compile Include="ApiInfrastructure\Responses\CreateProductResponse.cs" />
     <Compile Include="ApiInfrastructure\Responses\ProductResponse.cs" />
     <Compile Include="ApiInfrastructure\Responses\RegisterResponse.cs" />
+    <Compile Include="ApiInfrastructure\Responses\TokenResponse.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
