@@ -3,7 +3,7 @@
     using System.Web;
     using ApiHelper;
 
-    public class ContextWrapper : IContextWrapper
+    public class TokenContainer : ITokenContainer
     {
         private const string ApiTokenKey = "ApiToken";
 

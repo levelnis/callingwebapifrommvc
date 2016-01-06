@@ -12,7 +12,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
     public class AccountController : BaseController
     {
         private readonly ILoginClient loginClient;
-        private readonly IContextWrapper contextWrapper;
+        private readonly ITokenContainer tokenContainer;
 
         /// <summary>
         /// Default parameterless constructor. 
@@ -20,9 +20,9 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
         /// </summary>
         public AccountController()
         {
-            var apiClient = new ApiClient(HttpClientInstance.Instance);
+            tokenContainer = new TokenContainer();
+            var apiClient = new ApiClient(HttpClientInstance.Instance, tokenContainer);
             loginClient = new LoginClient(apiClient);
-            contextWrapper = new ContextWrapper();
         }
 
         /// <summary>
@@ -30,11 +30,11 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
         /// Delete this if you aren't planning on using a DI container.
         /// </summary>
         /// <param name="loginClient">The login client.</param>
-        /// <param name="contextWrapper">The context wrapper.</param>
-        public AccountController(ILoginClient loginClient, IContextWrapper contextWrapper)
+        /// <param name="tokenContainer">The context wrapper.</param>
+        public AccountController(ILoginClient loginClient, ITokenContainer tokenContainer)
         {
             this.loginClient = loginClient;
-            this.contextWrapper = contextWrapper;
+            this.tokenContainer = tokenContainer;
         }
 
         public ActionResult Login()
@@ -50,7 +50,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
             var loginSuccess = await PerformLoginActions(model.Email, model.Password);
             if (loginSuccess)
             {
-                // redirect
+                return RedirectToAction("Index", "Home");
             }
 
             ModelState.Clear();
@@ -83,7 +83,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
             var response = await loginClient.Login(email, password);
             if (response.StatusIsSuccessful)
             {
-                contextWrapper.ApiToken = response.ApiToken;
+                tokenContainer.ApiToken = response.ApiToken;
             }
             else
             {

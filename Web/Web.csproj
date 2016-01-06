@@ -125,7 +125,7 @@
     <Compile Include="ApiInfrastructure\Client\IProductClient.cs" />
     <Compile Include="ApiInfrastructure\Client\LoginClient.cs" />
     <Compile Include="ApiInfrastructure\Client\ProductClient.cs" />
-    <Compile Include="ApiInfrastructure\ContextWrapper.cs" />
+    <Compile Include="ApiInfrastructure\TokenContainer.cs" />
     <Compile Include="ApiInfrastructure\HttpClientInstance.cs" />
     <Compile Include="ApiInfrastructure\Responses\CreateProductResponse.cs" />
     <Compile Include="ApiInfrastructure\Responses\ProductResponse.cs" />

@@ -1,6 +1,6 @@
 ﻿namespace Levelnis.Learning.CallingWebApiFromMvc.ApiHelper
 {
-    public interface IContextWrapper
+    public interface ITokenContainer
     {
         object ApiToken { get; set; }
     }

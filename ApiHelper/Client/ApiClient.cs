@@ -9,12 +9,12 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.Client
     public class ApiClient : IApiClient
     {
         private readonly HttpClient httpClient;
-        private readonly IContextWrapper contextWrapper;
+        private readonly ITokenContainer tokenContainer;
 
-        public ApiClient(HttpClient httpClient, IContextWrapper contextWrapper)
+        public ApiClient(HttpClient httpClient, ITokenContainer tokenContainer)
         {
             this.httpClient = httpClient;
-            this.contextWrapper = contextWrapper;
+            this.tokenContainer = tokenContainer;
         }
 
         public async Task<HttpResponseMessage> GetFormEncodedContent(string requestUri, params KeyValuePair<string, string>[] values)
@@ -49,9 +49,9 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.ApiHelper.Client
 
         private void AddToken()
         {
-            if (contextWrapper.ApiToken != null)
+            if (tokenContainer.ApiToken != null)
             {
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", contextWrapper.ApiToken.ToString());
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenContainer.ApiToken.ToString());
             }
         }
     }

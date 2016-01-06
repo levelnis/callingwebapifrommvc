@@ -19,7 +19,8 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
         /// </summary>
         public ProductController()
         {
-            var apiClient = new ApiClient(HttpClientInstance.Instance);
+            var contextWrapper = new TokenContainer();
+            var apiClient = new ApiClient(HttpClientInstance.Instance, contextWrapper);
             productClient = new ProductClient(apiClient);
         }
 
