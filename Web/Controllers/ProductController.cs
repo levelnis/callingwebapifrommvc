@@ -6,9 +6,10 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
     using ApiHelper.Client;
     using ApiInfrastructure;
     using ApiInfrastructure.Client;
+    using Attributes;
     using Models;
 
-    [Authorize]
+    [Authentication]
     public class ProductController : BaseController
     {
         private readonly IProductClient productClient;

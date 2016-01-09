@@ -5,9 +5,13 @@
 
     public static class RouteConfig
     {
+        public const string LoginRouteName = "LogIn";
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(LoginRouteName, "log-in", new {controller = "Account", Action = "LogIn"});
 
             routes.MapRoute(
                 name: "Default",
