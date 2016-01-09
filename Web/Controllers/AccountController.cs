@@ -50,7 +50,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
             var loginSuccess = await PerformLoginActions(model.Email, model.Password);
             if (loginSuccess)
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("CreateProduct", "Product");
             }
 
             ModelState.Clear();
@@ -84,10 +84,6 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
             if (response.StatusIsSuccessful)
             {
                 tokenContainer.ApiToken = response.ApiToken;
-            }
-            else
-            {
-                AddResponseErrorsToModelState(response);
             }
 
             return response.StatusIsSuccessful;

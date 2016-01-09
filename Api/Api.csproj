@@ -189,6 +189,7 @@
     <Compile Include="Models\ProductApiModel.cs" />
     <Compile Include="Models\RegisterApiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
