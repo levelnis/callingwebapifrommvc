@@ -1,6 +1,5 @@
 ﻿namespace Levelnis.Learning.CallingWebApiFromMvc.Api.Controllers
 {
-    using System.Net.Http;
     using System.Web;
     using System.Web.Http;
     using Identity;
@@ -10,18 +9,11 @@
 
     public class RegisterController : ApiController
     {
-        private ApplicationUserManager _userManager;
-
-
-        public ApplicationUserManager UserManager
+        private static ApplicationUserManager UserManager
         {
             get
             {
-                return _userManager ?? HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
+                return HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
         }
 
@@ -48,11 +40,6 @@
             if (result == null)
             {
                 return InternalServerError();
-            }
-
-            if (result.Succeeded)
-            {
-                return null;
             }
 
             if (result.Errors != null)
