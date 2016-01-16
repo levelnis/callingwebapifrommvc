@@ -188,12 +188,6 @@
     <Compile Include="Identity\ApplicationDbContext.cs" />
     <Compile Include="Identity\ApplicationUser.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
-    <Compile Include="Migrations\201512310925215_Init.cs" />
-    <Compile Include="Migrations\201512310925215_Init.Designer.cs">
-      <DependentUpon>201512310925215_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\LoginApiModel.cs" />
     <Compile Include="Models\ProductApiModel.cs" />
     <Compile Include="Models\RegisterApiModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -209,11 +203,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512310925215_Init.resx">
-      <DependentUpon>201512310925215_Init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

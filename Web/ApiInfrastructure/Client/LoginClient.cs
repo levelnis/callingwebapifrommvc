@@ -36,7 +36,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.ApiInfrastructure.Client
             }
 
             var tokenData = await DecodeContent<dynamic>(response);
-            tokenResponse.ApiToken = tokenData["access_token"];
+            tokenResponse.Data = tokenData["access_token"];
             return tokenResponse;
         }
 

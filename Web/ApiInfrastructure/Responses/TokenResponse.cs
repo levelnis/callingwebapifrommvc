@@ -2,8 +2,7 @@
 {
     using ApiHelper.Response;
 
-    public class TokenResponse : ApiResponse
+    public class TokenResponse : ApiResponse<string>
     {
-        public string ApiToken { get; set; }
     }
 }

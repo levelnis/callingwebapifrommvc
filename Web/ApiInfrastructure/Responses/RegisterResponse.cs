@@ -2,8 +2,7 @@
 
 namespace Levelnis.Learning.CallingWebApiFromMvc.Web.ApiInfrastructure.Responses
 {
-    public class RegisterResponse : ApiResponse<string>
+    public class RegisterResponse : ApiResponse
     {
-         
     }
 }

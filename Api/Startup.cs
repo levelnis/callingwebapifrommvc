@@ -14,9 +14,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Api
     {
         public void Configuration(IAppBuilder app)
         {
-            var config = new HttpConfiguration();
-            WebApiConfig.Register(config);
-            app.UseWebApi(config);
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
 

@@ -30,7 +30,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
         /// Delete this if you aren't planning on using a DI container.
         /// </summary>
         /// <param name="loginClient">The login client.</param>
-        /// <param name="tokenContainer">The context wrapper.</param>
+        /// <param name="tokenContainer">The token container.</param>
         public AccountController(ILoginClient loginClient, ITokenContainer tokenContainer)
         {
             this.loginClient = loginClient;
@@ -83,7 +83,7 @@ namespace Levelnis.Learning.CallingWebApiFromMvc.Web.Controllers
             var response = await loginClient.Login(email, password);
             if (response.StatusIsSuccessful)
             {
-                tokenContainer.ApiToken = response.ApiToken;
+                tokenContainer.ApiToken = response.Data;
             }
 
             return response.StatusIsSuccessful;
